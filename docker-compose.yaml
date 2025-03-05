@@ -1,18 +1,23 @@
 ﻿services:
   petprojectcafe.api:
     image: petprojectcafe.api
+    container_name: petprojectcafe.api
     build:
-      context: .
+      context: ./src
       dockerfile: PetProjectCafe.API/Dockerfile
+      
+  postgres:
+    container_name: postgres
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: cafe
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
 
-  petprojectcafe.api-1:
-    image: petprojectcafe.api-1
-    build:
-      context: .
-      dockerfile: src/PetProjectCafe.API/Dockerfile
-
-  petprojectcafe.domain:
-    image: petprojectcafe.domain
-    build:
-      context: .
-      dockerfile: src/PetProjectCafe.Domain/Dockerfile
+volumes:
+  postgres-data:

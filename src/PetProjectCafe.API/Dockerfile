@@ -8,6 +8,9 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["src/PetProjectCafe.API/PetProjectCafe.API.csproj", "src/PetProjectCafe.API/"]
+COPY ["src/PetProjectCafe.Domain/PetProjectCafe.Domain.csproj", "src/PetProjectCafe.Domain/"]
+COPY ["src/PetProjectCafe.Application/PetProjectCafe.Application.csproj", "src/PetProjectCafe.Application/"]
+COPY ["src/PetProjectCafe.Infrastructure/PetProjectCafe.Infrastructure.csproj", "src/PetProjectCafe.Infrastructure/"]
 RUN dotnet restore "src/PetProjectCafe.API/PetProjectCafe.API.csproj"
 COPY . .
 WORKDIR "/src/src/PetProjectCafe.API"

@@ -1,5 +1,4 @@
 ﻿using CSharpFunctionalExtensions;
-using PetProjectCafe.Domain.Menu;
 using PetProjectCafe.Domain.ValueObjects.Ids;
 
 namespace PetProjectCafe.Domain.Orders;
