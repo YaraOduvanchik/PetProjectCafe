@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2B667384-F819-433F-BE93-7A9E046E3252}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yaml = docker-compose.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{ED978F27-2771-4313-A349-6A587F00E9B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetProjectCafe.API", "src\PetProjectCafe.API\PetProjectCafe.API.csproj", "{051231FF-AAAE-4B82-836C-849DAF42B1AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetProjectCafe.Domain", "src\PetProjectCafe.Domain\PetProjectCafe.Domain.csproj", "{ACBF34B3-C712-4218-A86C-6DA2BFC7043D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetProjectCafe.Application", "src\PetProjectCafe.Application\PetProjectCafe.Application.csproj", "{CFAFB782-4D16-451A-BD4F-66788136FB70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetProjectCafe.Infrastructure", "src\PetProjectCafe.Infrastructure\PetProjectCafe.Infrastructure.csproj", "{4131BACE-39CD-4532-9C54-BE67E62860A7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{051231FF-AAAE-4B82-836C-849DAF42B1AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{051231FF-AAAE-4B82-836C-849DAF42B1AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{051231FF-AAAE-4B82-836C-849DAF42B1AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{051231FF-AAAE-4B82-836C-849DAF42B1AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACBF34B3-C712-4218-A86C-6DA2BFC7043D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACBF34B3-C712-4218-A86C-6DA2BFC7043D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACBF34B3-C712-4218-A86C-6DA2BFC7043D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACBF34B3-C712-4218-A86C-6DA2BFC7043D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFAFB782-4D16-451A-BD4F-66788136FB70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFAFB782-4D16-451A-BD4F-66788136FB70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFAFB782-4D16-451A-BD4F-66788136FB70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFAFB782-4D16-451A-BD4F-66788136FB70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4131BACE-39CD-4532-9C54-BE67E62860A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4131BACE-39CD-4532-9C54-BE67E62860A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4131BACE-39CD-4532-9C54-BE67E62860A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4131BACE-39CD-4532-9C54-BE67E62860A7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{051231FF-AAAE-4B82-836C-849DAF42B1AA} = {ED978F27-2771-4313-A349-6A587F00E9B0}
+		{ACBF34B3-C712-4218-A86C-6DA2BFC7043D} = {ED978F27-2771-4313-A349-6A587F00E9B0}
+		{CFAFB782-4D16-451A-BD4F-66788136FB70} = {ED978F27-2771-4313-A349-6A587F00E9B0}
+		{4131BACE-39CD-4532-9C54-BE67E62860A7} = {ED978F27-2771-4313-A349-6A587F00E9B0}
+	EndGlobalSection
+EndGlobal

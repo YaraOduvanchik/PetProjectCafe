@@ -1,0 +1,18 @@
+﻿services:
+  petprojectcafe.api:
+    image: petprojectcafe.api
+    build:
+      context: .
+      dockerfile: PetProjectCafe.API/Dockerfile
+
+  petprojectcafe.api-1:
+    image: petprojectcafe.api-1
+    build:
+      context: .
+      dockerfile: src/PetProjectCafe.API/Dockerfile
+
+  petprojectcafe.domain:
+    image: petprojectcafe.domain
+    build:
+      context: .
+      dockerfile: src/PetProjectCafe.Domain/Dockerfile
