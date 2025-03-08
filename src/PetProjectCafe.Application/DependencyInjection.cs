@@ -3,6 +3,8 @@ using PetProjectCafe.Application.MenuFeatures.Commands.Create;
 using PetProjectCafe.Application.MenuFeatures.Commands.CreateMenuItem;
 using PetProjectCafe.Application.MenuFeatures.Commands.RemoveMenuItem;
 using PetProjectCafe.Application.MenuFeatures.Commands.UpdateMenuItem;
+using PetProjectCafe.Application.OrderFeatures.Commands.Create;
+using PetProjectCafe.Application.OrderFeatures.Commands.UpdateStatus;
 
 namespace PetProjectCafe.Application;
 
@@ -19,6 +21,9 @@ public static class DependencyInjection
         services.AddScoped<CreateMenuItemHandler>();
         services.AddScoped<UpdateMenuItemHandler>();
         services.AddScoped<RemoveMenuItemHandler>();
+
+        services.AddScoped<CreateOrderHandler>();
+        services.AddScoped<UpdateOrderStatusHandler>();
 
         return services;
     }

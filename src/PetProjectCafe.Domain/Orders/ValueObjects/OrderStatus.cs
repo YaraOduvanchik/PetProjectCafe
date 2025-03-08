@@ -19,7 +19,7 @@ public sealed class OrderStatus : ComparableValueObject
 
     public static Result<OrderStatus> Create(string value)
     {
-        if (_orderItems.Any(o => o.Value.ToLower() == value.Trim().ToLower() == false))
+        if (_orderItems.Any(o => o.Value.ToLower() == value.Trim().ToLower()) == false)
         {
             return Result.Failure<OrderStatus>("Order status is not valid! Please choose a valid order status! (AtWork, Completed, Cancelled)");
         }
@@ -29,6 +29,6 @@ public sealed class OrderStatus : ComparableValueObject
 
     protected override IEnumerable<IComparable> GetComparableEqualityComponents()
     {
-        throw new NotImplementedException();
+        yield return Value;
     }
 }

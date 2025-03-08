@@ -17,6 +17,8 @@ public class OrderItemConfiguration : IEntityTypeConfiguration<OrderItem>
             .HasConversion(
                 id => id.Value,
                 value => OrderItemId.Create(value));
+        
+        builder.Property(o => o.Quantity).IsRequired();
 
         builder.ComplexProperty(o => o.MenuItemId, ib =>
         {

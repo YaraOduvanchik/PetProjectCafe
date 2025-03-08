@@ -12,6 +12,7 @@
 
     <ItemGroup>
       <Folder Include="MenuFeatures\Queries\" />
+      <Folder Include="OrderFeatures\Queries\" />
     </ItemGroup>
 
     <ItemGroup>

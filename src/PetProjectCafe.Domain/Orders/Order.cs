@@ -14,7 +14,7 @@ public sealed class Order : Entity<OrderId>
     {
     }
 
-    private Order(
+    public Order(
         OrderId id,
         Name clientName,
         PaymentMethod paymentMethod)
@@ -47,13 +47,13 @@ public sealed class Order : Entity<OrderId>
         {
             return UnitResult.Failure<string>("You cannot complete a cancelled order!");
         }
-        
+
         Status = status;
-        
+
         return UnitResult.Success<string>();
     }
 
-    public void AddOrderItem(OrderItem orderItem) => _orderItems.Add(orderItem);
+    public void AddOrderItems(IEnumerable<OrderItem> orderItems) => _orderItems.AddRange(orderItems);
 
     public void RemoveOrderItem(OrderItem orderItem) => _orderItems.Remove(orderItem);
 }

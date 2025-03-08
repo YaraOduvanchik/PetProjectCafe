@@ -15,11 +15,14 @@ public static class DependencyInjection
 
     private static IServiceCollection AddContexts(this IServiceCollection services)
     {
-       return services.AddDbContext<ApplicationDbContext>();
+        return services.AddDbContext<ApplicationDbContext>();
     }
-    
+
     private static IServiceCollection AddRepositories(this IServiceCollection services)
     {
-        return services.AddScoped<IMenuRepository, MenuRepository>();
+        services.AddScoped<IMenuRepository, MenuRepository>();
+        services.AddScoped<IOrderRepository, OrderRepository>();
+
+        return services;
     }
 }
