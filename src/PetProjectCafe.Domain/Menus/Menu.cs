@@ -2,7 +2,7 @@
 using PetProjectCafe.Domain.ValueObjects;
 using PetProjectCafe.Domain.ValueObjects.Ids;
 
-namespace PetProjectCafe.Domain.Menu;
+namespace PetProjectCafe.Domain.Menus;
 
 public sealed class Menu : Entity<MenuId>
 {
@@ -22,6 +22,15 @@ public sealed class Menu : Entity<MenuId>
 
     public IReadOnlyCollection<MenuItem> MenuItems => _menuItems.AsReadOnly();
 
+    public Result<MenuItem> GetMenuItemById(MenuItemId id)
+    {
+        var menuItem = _menuItems.SingleOrDefault(mi => mi.Id == id);
+        if (menuItem is null)
+            return Result.Failure<MenuItem>("Menu item not found!");
+
+        return menuItem;
+    }
+
     public UnitResult<string> AddMenuItem(MenuItem menuItem)
     {
         if (_menuItems.Any(mi => mi.Name == menuItem.Name))
@@ -33,6 +42,15 @@ public sealed class Menu : Entity<MenuId>
 
         return UnitResult.Success<string>();
     }
+    
+    public UnitResult<string> RemoveMenuItem(MenuItemId id)
+    {
+        var menuItemResult = GetMenuItemById(id);
+        if (menuItemResult.IsFailure)
+            return UnitResult.Failure(menuItemResult.Error);
 
-    public void RemoveMenuItem(MenuItem menuItem) => _menuItems.Remove(menuItem);
+        _menuItems.Remove(menuItemResult.Value);
+
+        return UnitResult.Success<string>(); 
+    }
 }

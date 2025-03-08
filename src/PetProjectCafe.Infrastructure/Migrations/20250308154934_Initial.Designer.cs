@@ -13,7 +13,7 @@ using PetProjectCafe.Infrastructure;
 namespace PetProjectCafe.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250305142847_Initial")]
+    [Migration("20250308154934_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -26,13 +26,13 @@ namespace PetProjectCafe.Infrastructure.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("PetProjectCafe.Domain.Menu.Menu", b =>
+            modelBuilder.Entity("PetProjectCafe.Domain.Menus.Menu", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uuid")
                         .HasColumnName("id");
 
-                    b.ComplexProperty<Dictionary<string, object>>("Name", "PetProjectCafe.Domain.Menu.Menu.Name#Name", b1 =>
+                    b.ComplexProperty<Dictionary<string, object>>("Name", "PetProjectCafe.Domain.Menus.Menu.Name#Name", b1 =>
                         {
                             b1.IsRequired();
 
@@ -48,7 +48,7 @@ namespace PetProjectCafe.Infrastructure.Migrations
                     b.ToTable("menus", (string)null);
                 });
 
-            modelBuilder.Entity("PetProjectCafe.Domain.Menu.MenuItem", b =>
+            modelBuilder.Entity("PetProjectCafe.Domain.Menus.MenuItem", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uuid")
@@ -58,7 +58,11 @@ namespace PetProjectCafe.Infrastructure.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("menu_id");
 
-                    b.ComplexProperty<Dictionary<string, object>>("Name", "PetProjectCafe.Domain.Menu.MenuItem.Name#Name", b1 =>
+                    b.Property<decimal>("Price")
+                        .HasColumnType("numeric")
+                        .HasColumnName("price");
+
+                    b.ComplexProperty<Dictionary<string, object>>("Name", "PetProjectCafe.Domain.Menus.MenuItem.Name#Name", b1 =>
                         {
                             b1.IsRequired();
 
@@ -151,9 +155,9 @@ namespace PetProjectCafe.Infrastructure.Migrations
                     b.ToTable("order_items", (string)null);
                 });
 
-            modelBuilder.Entity("PetProjectCafe.Domain.Menu.MenuItem", b =>
+            modelBuilder.Entity("PetProjectCafe.Domain.Menus.MenuItem", b =>
                 {
-                    b.HasOne("PetProjectCafe.Domain.Menu.Menu", null)
+                    b.HasOne("PetProjectCafe.Domain.Menus.Menu", null)
                         .WithMany("MenuItems")
                         .HasForeignKey("MenuId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -171,7 +175,7 @@ namespace PetProjectCafe.Infrastructure.Migrations
                         .HasConstraintName("fk_order_items_orders_order_id");
                 });
 
-            modelBuilder.Entity("PetProjectCafe.Domain.Menu.Menu", b =>
+            modelBuilder.Entity("PetProjectCafe.Domain.Menus.Menu", b =>
                 {
                     b.Navigation("MenuItems");
                 });

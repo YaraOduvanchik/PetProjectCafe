@@ -43,6 +43,7 @@ namespace PetProjectCafe.Infrastructure.Migrations
                 columns: table => new
                 {
                     id = table.Column<Guid>(type: "uuid", nullable: false),
+                    price = table.Column<decimal>(type: "numeric", nullable: false),
                     menu_id = table.Column<Guid>(type: "uuid", nullable: false),
                     name_value = table.Column<string>(type: "text", nullable: false)
                 },

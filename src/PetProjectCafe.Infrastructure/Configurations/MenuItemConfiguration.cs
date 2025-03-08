@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using PetProjectCafe.Domain.Menu;
+using PetProjectCafe.Domain.Menus;
 using PetProjectCafe.Domain.ValueObjects.Ids;
 
 namespace PetProjectCafe.Infrastructure.Configurations;
@@ -20,7 +20,10 @@ public class MenuItemConfiguration : IEntityTypeConfiguration<MenuItem>
         
         builder.ComplexProperty(m => m.Name, nb =>
         {
-            nb.Property(n => n.Value).IsRequired();
+            nb.Property(n => n.Value)
+                .IsRequired();
         });
+
+        builder.Property(mi => mi.Price).IsRequired();
     }
 }

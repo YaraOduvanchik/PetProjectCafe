@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using PetProjectCafe.Domain.Menu;
+using PetProjectCafe.Domain.Menus;
 using PetProjectCafe.Domain.ValueObjects.Ids;
 
 namespace PetProjectCafe.Infrastructure.Configurations;

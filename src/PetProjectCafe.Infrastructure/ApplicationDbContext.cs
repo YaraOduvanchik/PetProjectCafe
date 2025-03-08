@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using PetProjectCafe.Domain.Menus;
+using PetProjectCafe.Domain.Orders;
 
 namespace PetProjectCafe.Infrastructure;
 
@@ -11,6 +13,10 @@ public class ApplicationDbContext : DbContext
     {
         _configuration = configuration;
     }
+
+    public DbSet<Menu> Menus => Set<Menu>();
+
+    public DbSet<Order> Orders => Set<Order>();
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
