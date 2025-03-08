@@ -53,7 +53,18 @@ public sealed class Order : Entity<OrderId>
         return UnitResult.Success<string>();
     }
 
+    public void AddOrderItem(OrderItem orderItem) => _orderItems.Add(orderItem);
+
     public void AddOrderItems(IEnumerable<OrderItem> orderItems) => _orderItems.AddRange(orderItems);
 
-    public void RemoveOrderItem(OrderItem orderItem) => _orderItems.Remove(orderItem);
+    public UnitResult<string> RemoveOrderItem(OrderItemId id)
+    {
+        var menuItemResult = _orderItems.SingleOrDefault(oi => oi.Id == id);
+        if (menuItemResult is null)
+            return UnitResult.Failure("Order item not found!");
+
+        _orderItems.Remove(menuItemResult);
+
+        return UnitResult.Success<string>();
+    }
 }

@@ -33,4 +33,6 @@ public sealed class OrderItem : Entity<OrderItemId>
 
         return new OrderItem(OrderItemId.NewId(), menuItemId, quantity);
     }
+
+    public void UpdateFullInfo(MenuItemId menuItemId, int quantity) => (MenuItemId, Quantity) = (menuItemId, quantity);
 }
