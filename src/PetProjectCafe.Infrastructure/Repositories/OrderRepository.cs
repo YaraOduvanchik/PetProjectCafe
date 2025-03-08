@@ -15,6 +15,20 @@ public class OrderRepository : IOrderRepository
         _context = context;
     }
 
+    public async Task<IReadOnlyCollection<Order>> GetByPeriodDateTimeAndStatus(
+        DateTime dateTimeFrom,
+        DateTime dateTimeTo,
+        string status,
+        CancellationToken cancellationToken)
+    {
+        return await _context.Orders
+            .Include(o => o.OrderItems)
+            .Where(o => o.DateAndTime >= dateTimeFrom
+                        && o.DateAndTime <= dateTimeTo
+                        && o.Status.Value.ToLower() == status.ToLower())
+            .ToListAsync(cancellationToken);
+    }
+
     public async Task<Result<Order>> GetById(OrderId id, CancellationToken cancellationToken)
     {
         var order = await _context.Orders

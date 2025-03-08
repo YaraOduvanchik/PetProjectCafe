@@ -6,6 +6,12 @@ namespace PetProjectCafe.Application.Abstractions;
 
 public interface IOrderRepository
 {
+    Task<IReadOnlyCollection<Order>> GetByPeriodDateTimeAndStatus(
+        DateTime dateTimeFrom,
+        DateTime dateTimeTo,
+        string status,
+        CancellationToken cancellationToken);
+
     Task<Result<Order>> GetById(OrderId id, CancellationToken cancellationToken);
     Task Create(Order order, CancellationToken cancellationToken);
     void Update(Order order, CancellationToken cancellationToken);

@@ -1,11 +1,7 @@
 ﻿using CSharpFunctionalExtensions;
 using Microsoft.Extensions.Logging;
 using PetProjectCafe.Application.Abstractions;
-using PetProjectCafe.Application.OrderFeatures.Commands.Create;
-using PetProjectCafe.Domain.Orders;
 using PetProjectCafe.Domain.Orders.ValueObjects;
-using PetProjectCafe.Domain.ValueObjects;
-using PetProjectCafe.Domain.ValueObjects.Ids;
 
 namespace PetProjectCafe.Application.OrderFeatures.Commands.UpdateStatus;
 

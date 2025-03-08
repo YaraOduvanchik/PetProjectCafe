@@ -5,6 +5,7 @@ using PetProjectCafe.Application.MenuFeatures.Commands.RemoveMenuItem;
 using PetProjectCafe.Application.MenuFeatures.Commands.UpdateMenuItem;
 using PetProjectCafe.Application.OrderFeatures.Commands.Create;
 using PetProjectCafe.Application.OrderFeatures.Commands.UpdateStatus;
+using PetProjectCafe.Application.OrderFeatures.Queries.GetAllByPeriodDateTime;
 
 namespace PetProjectCafe.Application;
 
@@ -22,6 +23,7 @@ public static class DependencyInjection
         services.AddScoped<UpdateMenuItemHandler>();
         services.AddScoped<RemoveMenuItemHandler>();
 
+        services.AddScoped<GetAllByFilteredHandler>();
         services.AddScoped<CreateOrderHandler>();
         services.AddScoped<UpdateOrderStatusHandler>();
 
